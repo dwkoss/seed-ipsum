@@ -1,32 +1,38 @@
 const _ = require('lodash');
 
-module.exports = (markov, startingEntries, selectionThreshold, hardTerminatorRegex, segmentTerminatorRegex, numberOfSegments) => {
-    let prevText = startingEntries;
+module.exports = (
+  markov,
+  startingEntries,
+  selectionThreshold,
+  hardTerminatorRegex,
+  segmentTerminatorRegex,
+  numberOfSegments
+) => {
+  let prevText = startingEntries;
 
-    let text = '';
-    let nextWord;
+  let text = '';
+  let nextWord;
 
-    const isTerminated = word =>
-        hardTerminatorRegex.test(word) ||
-        (segmentTerminatorRegex && segmentTerminatorRegex.test(word));
+  const isTerminated = word =>
+    hardTerminatorRegex.test(word) ||
+    (segmentTerminatorRegex && segmentTerminatorRegex.test(word));
 
-    for (let i = 0; i < (numberOfSegments || 1); i++) {
-        do {
-            nextWord = _.sample(markov.getEntriesGivenThreshold(
-                prevText,
-                selectionThreshold
-            ));
-    
-            prevText = [nextWord, ...prevText];
-            text += nextWord;
-        } while (!isTerminated(nextWord))
-    
-        if (hardTerminatorRegex.test(nextWord)) {
-            break;
-        }
+  for (let i = 0; i < (numberOfSegments || 1); i++) {
+    do {
+      nextWord = _.sample(
+        markov.getEntriesGivenThreshold(prevText, selectionThreshold)
+      );
+
+      prevText = [nextWord, ...prevText];
+      text += nextWord;
+    } while (!isTerminated(nextWord));
+
+    if (hardTerminatorRegex.test(nextWord)) {
+      break;
     }
+  }
 
-    return text;
+  return text;
 };
 
 /*
