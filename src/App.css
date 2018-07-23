@@ -1,0 +1,109 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial;
+  font-size: 17px;
+  line-height: 1.4;
+  color: rgba(0,0,0,.7);
+  background-color: #F6F6F6;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.App-nav {
+  padding-right: 15px;
+  height: 50px;
+}
+
+.App-nav > a {
+  line-height: 50px;
+  float: right;
+  color: #F6F6F6;
+}
+
+.App-nav > a:link {
+  text-decoration: none;
+}
+
+.App-nav > a:visited {
+  text-decoration: none;
+}
+
+.App-nav > a:hover {
+  text-decoration: underline;
+}
+
+textarea {
+  -webkit-box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
+  -moz-box-shadow:    inset 0 1px 2px rgba(10,10,10,.1);
+  box-shadow:         inset 0 1px 2px rgba(10,10,10,.1);
+  color: rgba(0,0,0,.7);
+}
+
+.App-header {
+  height: 280px;
+  text-align: center;
+  color: #F6F6F6;
+  background-color: #0E794C;
+  font-weight: lighter;
+}
+
+.App-header > h1 {
+  font-weight: lighter;
+}
+
+.container {
+  top: -80px;
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  min-height: 500px;
+  background-color: #FFFFFF;
+  margin: 20px auto 0 auto;
+  padding: 20px;
+  -webkit-box-shadow: 0px 5px 7px rgba(100, 100, 100, 0.4);
+  -moz-box-shadow:    0px 5px 7px rgba(100, 100, 100, 0.4);
+  box-shadow:         0px 5px 7px rgba(100, 100, 100, 0.4);
+}
+
+.bordered {
+   margin: 10px;
+   box-sizing: border-box;
+   /** relative so that our ::before absolute block can position itself according to it's parent block **/
+   position: relative;
+}
+.bordered > * {
+  width: 100%;
+}
+
+input[type=text] {
+  padding: 0px 0px;
+  margin: 0px 0;
+  box-sizing: border-box;
+}
+
+hr.gradient { 
+  border: 0; 
+  height: 1px; 
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+}
+
+textarea:active, textarea:focus {
+  outline-color: initial;
+  outline-style: initial;
+  outline-width: 0px;
+  outline-offset: -2px;
+}
+
+button {
+  margin: 2px 0;
+  border: solid 1px transparent;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  color: #F6F6F6;
+  background-color: #0E794C;
+}
